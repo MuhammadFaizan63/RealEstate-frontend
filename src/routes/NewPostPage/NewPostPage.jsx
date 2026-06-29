@@ -1,5 +1,3 @@
-
-
 import { useState } from "react";
 import "./NewPostPage.scss";
 import { useEditor, EditorContent } from "@tiptap/react";
