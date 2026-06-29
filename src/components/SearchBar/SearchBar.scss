@@ -1,0 +1,102 @@
+@use '../../responsive.scss' as r;
+@use "sass:color";
+
+.searchBar {
+    .type {
+        button {
+            padding: 16px 36px;
+            border: 1px solid #999;
+            border-bottom: none;
+            cursor: pointer;
+            background-color: white;
+            text-transform: capitalize;
+
+            &.active {
+                background-color: black;
+                color: white;
+            }
+
+            &:first-child {
+                border-top-left-radius: 5px;
+                border-right: none;
+            }
+
+            &:last-child {
+                border-top-right-radius: 5px;
+                border-left: none;
+            }
+
+            @include r.sm {
+                padding: 12px 24px; 
+            }
+        }
+    }
+
+    form {
+        border: 1px solid #999;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        height: 64px;
+        gap: 0px; 
+
+        @include r.sm {
+            flex-direction: column;
+            border: none;
+            height: auto; 
+            gap: 10px;    
+        }
+
+        input {
+            border: none;
+            padding: 0px 15px;
+            flex: 1;
+            min-width: 0;
+            width: auto;
+            border-right: 1px solid #999; 
+
+            @include r.lg {
+                width: 150px;
+            }
+
+            @include r.md {
+                width: 120px;
+            }
+
+            @include r.sm {
+                padding: 15px;
+                border: 1px solid #999; 
+                width: auto;           
+            }
+        }
+
+        button {
+            border: none;
+            cursor: pointer;
+            background-color: #fece51;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+            width: 100%;
+            height: 100%;
+            transition: background-color 0.3s;
+
+            &:hover {
+                background-color: color.adjust(#fece51, $lightness: -10%);
+            }
+
+            @include r.sm {
+                padding: 15px;
+                border-radius: 5px;
+                width: 100%;
+                height: auto;
+            }
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+}

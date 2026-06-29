@@ -1,0 +1,175 @@
+@use "../../responsive.scss" as r;
+
+nav {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; 
+    padding: 0 20px; 
+
+    a {
+        transition: all 0.4s ease;
+        text-decoration: none;
+        color: black;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+
+    .left {
+        flex: 3;
+        display: flex;
+        align-items: center;
+        gap: 50px;
+
+        .logo {
+            font-weight: bold;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            img {
+                width: 50px; 
+            }
+
+            span {
+                @include r.md {
+                    display: none;
+                }
+
+                @include r.sm {
+                    display: initial;
+                }
+            }
+        }
+
+        
+        a:not(.logo) {
+            @include r.sm {
+                display: none;
+            }
+        }
+    }
+
+    .right {
+        flex: 2;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        background-color: #fcf5f3; 
+        height: 100%;
+
+        @include r.md {
+            background-color: transparent;
+        }
+
+        
+        & > a {
+            padding: 12px 24px;
+            margin: 0 10px; 
+
+            @include r.sm {
+                display: none;
+            }
+        }
+
+        .user{
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            gap: 10px;
+
+            img{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-right: 20px;
+            }
+
+            span,.profile,.notification{
+                @include r.sm{
+                    display: none;
+                }
+            }
+
+            .profile{
+                padding: 12px 24px;
+                background-color: #fece51;
+                cursor: pointer;
+                border: none;
+                position: relative;
+
+                .notification{
+                    position: absolute;
+                    top: -8px;
+                    right: -8px;
+                    background-color: red;
+                    color: white;
+                    border-radius: 50%;
+                    width: 26px;
+                    height: 26px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+        .register {
+            background-color: #fece51;
+        }
+
+        .menuIcon {
+            display: none;
+            z-index: 1001;
+            margin-right: 10px; 
+
+            img {
+                width: 36px;
+                height: 36px;
+                cursor: pointer;
+            }
+
+            @include r.sm {
+                display: block; 
+            }
+        }
+
+        .menu {
+            position: fixed; 
+            top: 0;
+            right: -50%; 
+            background-color: black;
+            color: white;
+            height: 100vh;
+            width: 50%;
+            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            gap: 20px;
+            z-index: 1000;
+
+            &.active {
+                right: 0; 
+            }
+
+            a {
+                color: white;
+                @include r.sm {
+                    display: block;
+                }
+            }
+
+            
+            @media (min-width: 769px) {
+                display: none;
+            }
+        }
+    }
+}
