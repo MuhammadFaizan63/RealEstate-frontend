@@ -1,6 +1,6 @@
 import React from 'react' 
 import Navbar from './components/Navbar/Navbar'
-import HomePage from './routes/homePage/homePage'
+import HomePage from './routes/HomePage/HomePage'
 import ListPage from './routes/ListPage/ListPage'
 import { Link, createBrowserRouter, RouterProvider } from 'react-router-dom'
 import { Layout, RequireAuth } from './routes/Layout/Layout'
@@ -9,7 +9,7 @@ import ProfilePage from './routes/ProfilePage/ProfilePage'
 import Register from './routes/Register/Register'
 import Login from './routes/Login/Login'
 import ProfileUpdatePage from './routes/ProfileUpdatePage/ProfileUpdatePage'
-import NewPostPage from './routes/newPostPage/newPostPage'
+import NewPostPage from './routes/NewPostPage/NewPostPage'
 import { listPageLoader, profilePageLoader, singlePageLoader } from './lib/loaders'
 
 const App = () => {
